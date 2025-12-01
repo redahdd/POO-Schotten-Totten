@@ -46,8 +46,10 @@ public class Borne {
     public EtatBorne getEtat() {
         return etat;
     }
-    public int getCartesJoueurSize(Liste<Carte> cartesJoueur1) {
+    public int getCartesJoueur1Size(Liste<Carte> cartesJoueur1) {
         return cartesJoueur1.size();
     }
-    public Joueur determinerGagnant() { /* ... */ return null; }
+    public int getCartesJoueur2Size(Liste<Carte> cartesJoueur2) {
+        return cartesJoueur2.size();
+    }
 }
