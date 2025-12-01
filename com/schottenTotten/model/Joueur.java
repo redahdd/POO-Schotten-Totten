@@ -28,4 +28,7 @@ public class Joueur {
     public ArrayList<Carte> getMain() {
         return main;
     }
+    public int getNombreCartes() {
+        return main.size();
+    }
 }
