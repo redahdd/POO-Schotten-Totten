@@ -29,7 +29,7 @@ public class Partie {
     public void initialiserBornes() {
         bornes = new ArrayList<>();
         for (int i = 1; i <= 9; i++) {
-            bornes.add(new Borne("Borne n°" + i));
+            bornes.add(new Borne(i));
         }
     }
 
