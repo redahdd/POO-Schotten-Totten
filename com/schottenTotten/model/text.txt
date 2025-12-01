@@ -1,0 +1,53 @@
+Non 😅, il y a plusieurs **erreurs importantes** dans cette version :
+
+---
+
+### 1️⃣ **Constructeur de Joueur dans Partie**
+
+```java
+public Joueur(String nom, String type, Array main) { ... }
+```
+
+* **Problème :** tu ne peux **pas déclarer un constructeur d’une autre classe (`Joueur`) dans la classe `Partie`)**.
+* Le constructeur de `Joueur` doit être **dans la classe `Joueur`**, pas dans `Partie`.
+* Dans `Partie`, tu vas juste **instancier les objets `joueur1` et `joueur2`** :
+
+```java
+joueur1 = new Joueur("Alice", "HUMAIN");
+joueur2 = new Joueur("Bot", "IA");
+```
+
+---
+
+### 2️⃣ **Type de la main**
+
+* Tu as écrit `Array main` → ce n’est pas correct en Java.
+* Il faut utiliser : `ArrayList<Carte> main` ou un autre type de liste adaptée aux cartes.
+
+---
+
+### 3️⃣ **Méthode jouerTour**
+
+```java
+public String jouerTour(joueur j){ ... }
+```
+
+* Le type `joueur` n’existe pas en Java → les types commencent par une majuscule pour les classes.
+* Il faut écrire :
+
+```java
+public String jouerTour(Joueur j) { ... }
+```
+
+---
+
+### 4️⃣ **Résumé**
+
+* Supprime le constructeur de `Joueur` de `Partie`.
+* Déclare et implémente `Joueur` **dans sa propre classe**.
+* Dans `Partie`, tu créés simplement les instances `joueur1` et `joueur2`.
+* Corrige le type de la main et la signature de `jouerTour`.
+
+---
+
+Si tu veux, je peux te **réécrire la structure correcte de Partie avec les joueurs instanciés et la méthode jouerTour prête pour implémentation**, sans mettre de code complet à copier. Veux‑tu que je fasse ça ?
