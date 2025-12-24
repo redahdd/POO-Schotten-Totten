@@ -1,53 +1,38 @@
-Non 😅, il y a plusieurs **erreurs importantes** dans cette version :
+1. Implémenter le Contrôleur (com.schottenTotten.controller)
 
----
+Il faut maintenant une classe pour orchestrer le jeu. Selon votre diagramme, la classe Partie ou un Controleur doit gérer :
 
-### 1️⃣ **Constructeur de Joueur dans Partie**
+La boucle de jeu : Faire alterner les joueurs jusqu'à ce que estTerminee() soit vrai.
 
-```java
-public Joueur(String nom, String type, Array main) { ... }
-```
 
-* **Problème :** tu ne peux **pas déclarer un constructeur d’une autre classe (`Joueur`) dans la classe `Partie`)**.
-* Le constructeur de `Joueur` doit être **dans la classe `Joueur`**, pas dans `Partie`.
-* Dans `Partie`, tu vas juste **instancier les objets `joueur1` et `joueur2`** :
+La vérification de victoire : Un joueur gagne s'il possède 3 bornes adjacentes ou 5 bornes au total sur les 9 disponibles.
 
-```java
-joueur1 = new Joueur("Alice", "HUMAIN");
-joueur2 = new Joueur("Bot", "IA");
-```
 
----
+L'enchaînement des actions : 1. Jouer une carte -> 2. Revendiquer des bornes -> 3. Piocher.
 
-### 2️⃣ **Type de la main**
+2. Créer la Factory de Variantes
 
-* Tu as écrit `Array main` → ce n’est pas correct en Java.
-* Il faut utiliser : `ArrayList<Carte> main` ou un autre type de liste adaptée aux cartes.
+Le sujet demande d'utiliser un Design Pattern Factory pour créer les éditions du jeu (Base ou Tactique).
 
----
+Créez une classe JeuFactory qui instancie une Partie avec les bons paramètres (nombre de cartes en main, utilisation de cartes tactiques ou non).
 
-### 3️⃣ **Méthode jouerTour**
+3. Développer l'Intelligence Artificielle (com.schottenTotten.ai)
 
-```java
-public String jouerTour(joueur j){ ... }
-```
+Vous devez proposer au moins une IA, même basique.
 
-* Le type `joueur` n’existe pas en Java → les types commencent par une majuscule pour les classes.
-* Il faut écrire :
+Créez une classe IAAleatoire qui hérite de Joueur.
 
-```java
-public String jouerTour(Joueur j) { ... }
-```
 
----
+Sa méthode jouerTour choisira une carte et une borne au hasard parmi les choix valides.
 
-### 4️⃣ **Résumé**
+4. Réaliser l'Interface Utilisateur (com.schottenTotten.view)
 
-* Supprime le constructeur de `Joueur` de `Partie`.
-* Déclare et implémente `Joueur` **dans sa propre classe**.
-* Dans `Partie`, tu créés simplement les instances `joueur1` et `joueur2`.
-* Corrige le type de la main et la signature de `jouerTour`.
+Le sujet autorise une interface en mode console. Elle doit permettre :
 
----
 
-Si tu veux, je peux te **réécrire la structure correcte de Partie avec les joueurs instanciés et la méthode jouerTour prête pour implémentation**, sans mettre de code complet à copier. Veux‑tu que je fasse ça ?
+De choisir l'édition et de paramétrer les joueurs (nom, IA ou humain).
+
+D'afficher visuellement l'état des 9 bornes et des mains des joueurs.
+
+
+De valider les entrées utilisateur pour éviter les erreurs (ex: choisir un index de carte inexistant)

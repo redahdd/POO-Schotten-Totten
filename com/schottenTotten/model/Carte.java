@@ -1,11 +1,9 @@
-public class Carte {
+package com.schottenTotten.model;
+
+public class Carte implements Comparable<Carte> {
     private Couleur couleur;
     private int valeur;
 
-    public Carte(String couleur, int valeur) {
-        this.couleur = couleur;
-        this.valeur = valeur;
-    }
     public enum Couleur {
         ROUGE,
         BLEU,
@@ -14,13 +12,22 @@ public class Carte {
         ORANGE,
         VIOLET
     }
-
-
-
-    public getCouleur() {
+    
+    public Carte(Couleur couleur, int valeur) {
+        this.couleur = couleur;
+        this.valeur = valeur;
+    }
+    
+    public Couleur getCouleur() {
         return couleur;
     }
-    public getValeur() {
+    
+    public int getValeur() {
         return valeur;
+    }
+    
+    @Override
+    public int compareTo(Carte autre) {
+        return this.valeur - autre.valeur;
     }
 }
