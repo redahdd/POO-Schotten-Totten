@@ -1,6 +1,7 @@
 package com.schottenTotten.model;
 
 import com.schottenTotten.controller.Partie;
+import com.schottenTotten.controller.JeuFactory;
 import com.schottenTotten.ai.IAAleatoire;
 import java.util.Scanner;
 import java.util.Random;
